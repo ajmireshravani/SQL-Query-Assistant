@@ -37,9 +37,7 @@ MODEL_NAME = "gemini-3.6-flash"
 # MYSQL
 # =========================================================
 
-engine = create_engine(
-    "mysql+mysqlconnector://root:root@localhost/ai_sql_assistant"
-)
+engine = create_engine("sqlite:///:memory:")
 
 # =========================================================
 # SESSION STATE
@@ -356,7 +354,7 @@ if uploaded_file is not None and question.strip():
         # -------------------------------------------------
 
         sql_prompt = f"""
-You are an expert MySQL Data Analyst.
+You are an expert SQLite Data Analyst.
 
 Table:
 uploaded_data
